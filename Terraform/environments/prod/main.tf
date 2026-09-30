@@ -3,7 +3,7 @@ module "ec2" {
   count = 2
   ami_id        = var.ami_id
   instance_type = var.instance_type
-  instance_name = "${var.instance_name}-${cloud.index + 1}}"
+  instance_name = "${var.instance_name}-${count.index + 1}}"
   subnet_id = module.vpc.subnet_id
   security_group_id = module.vpc.security_group_id
 }
