@@ -1,4 +1,5 @@
 ami_id = "ami-01a00762f46d584a1"
+count = 2
 instance_type = "t2.micro"
 instance_name = "web server"
 

@@ -2,6 +2,10 @@ variable "ami_id" {
   type = string
 }
 
+variable "count" {
+  type = number
+}
+
 variable "instance_type" {
   type = string
 }
