@@ -5,3 +5,7 @@ variable "ami_id" {
 variable "instance_type" {
   type = string
 }
+
+variable "instance_name" {
+  type = string
+}
