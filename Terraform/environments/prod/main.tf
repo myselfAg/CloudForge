@@ -14,4 +14,5 @@ module "vpc" {
   vpc_name = var.vpc_name
   subnet_cidr_block = var.subnet_cidr_block
   subnet_name = var.subnet_name
+  subnet_zone = var.subnet_zone
 }
