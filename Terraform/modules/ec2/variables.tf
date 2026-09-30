@@ -2,7 +2,7 @@ variable "ami_id" {
   type = string
 }
 
-variable "count" {
+variable "instance_count" {
   type = number
 }
 
