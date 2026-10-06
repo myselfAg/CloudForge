@@ -2,7 +2,6 @@
 - name: Firewall Configuration for all servers
   hosts: all  
   become: yes
-
   roles:
     - firewall
 
@@ -11,7 +10,7 @@
   roles:
     - docker
 
-- hosts: load_balancer
+- hosts: nginx_server
   become: yes
   roles:
     - nginx

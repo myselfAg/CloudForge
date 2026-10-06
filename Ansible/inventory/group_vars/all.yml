@@ -1,4 +1,4 @@
-docker_image: agneesh/sample-app:latest
+docker_image: 
 
 containers:
   - name: app1
