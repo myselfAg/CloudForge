@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+{% for container in containers %}
+  {{ container.name }}:
+    image: "{{ docker_image }}"
+    container_name: "{{ container.name }}"
+    restart: always
+    ports:
+      - "{{ container.port }}:80"
+
+{% endfor %}

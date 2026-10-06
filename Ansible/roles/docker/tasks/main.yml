@@ -1,0 +1,33 @@
+---
+- name: Install Docker
+  apt:
+    name:
+      - docker.io
+      - docker-compose-v2
+    state: present
+    update_cache: yes
+
+- name: Start Docker service
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Create application directory
+  file:
+    path: /opt/app
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Create docker compose file
+  template:
+    src: docker-compose.yml.j2
+    dest: /opt/app/docker-compose.yml
+  notify: Restart containers
+
+- name: Deploy containers
+  command: docker compose up -d
+  args:
+    chdir: /opt/app
