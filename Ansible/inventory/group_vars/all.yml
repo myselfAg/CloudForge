@@ -1,3 +1,5 @@
+nginx_ip: 
+
 docker_image: 
 
 containers:
