@@ -8,14 +8,34 @@
     name: nginx
     state: present
 
-- name: Ensure nginx is running
-  service:
-    name: nginx
-    state: started
-    enabled: yes
+- name: Create certificate directory
+  file:
+    path: /home/ubuntu/nginx-certs
+    state: directory
+    owner: ubuntu
+    group: ubuntu
+    mode: '0755'
+
+- name: Copy certificate
+  copy:
+    src: /home/ubuntu/nginx-certs/nginx-selfsigned.crt
+    dest: /home/ubuntu/nginx-certs/nginx-selfsigned.crt
+    mode: '0644'
+
+- name: Copy private key
+  copy:
+    src: /home/ubuntu/nginx-certs/nginx-selfsigned.key
+    dest: /home/ubuntu/nginx-certs/nginx-selfsigned.key
+    mode: '0600'
 
 - name: Configure nginx load balancer
   template:
     src: nginx.conf.j2
     dest: /etc/nginx/sites-available/default
   notify: Restart Nginx
+
+- name: Ensure nginx is running
+  service:
+    name: nginx
+    state: started
+    enabled: yes

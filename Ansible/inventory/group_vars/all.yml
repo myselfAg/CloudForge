@@ -1,6 +1,6 @@
-nginx_ip: 
-
-docker_image: 
+app_server_ip: 10.0.0.208
+server_name: "_"
+docker_image: nginx
 
 containers:
   - name: app1
